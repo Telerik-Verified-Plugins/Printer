@@ -54,7 +54,7 @@ Printer.prototype = {
      * @param {Object?} options
      *      Platform specific options
      */
-    print: function (content, options) {
+    print: function (content, options, successCallback, errorCallback) {
         var page    = content.innerHTML || content,
             options = options || {};
 
@@ -63,7 +63,7 @@ Printer.prototype = {
             return;
         }
 
-        cordova.exec(null, null, 'Printer', 'print', [page, options]);
+        cordova.exec(successCallback, errorCallback, 'Printer', 'print', [page, options]);
     }
 };
 

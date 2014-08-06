@@ -65,9 +65,12 @@
 - (void) print:(CDVInvokedUrlCommand*)command
 {
     if (!self.isPrintingAvailable) {
-        return;
+      [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"printing not available"]
+                                  callbackId:command.callbackId];
+      return;
     }
 
+    _command = command;
     NSArray*  arguments  = [command arguments];
     NSString* content    = [arguments objectAtIndex:0];
 
@@ -78,8 +81,22 @@
 
     [self openPrintController:controller];
 
+    controller.delegate = self;
+  
     [self commandDelegate];
 }
+
+/**
+ * Called only when the user actually selected a printer and pressed the print button.
+ * There seems to be no way to know if the user pressed the 'cancel' button.
+ */
+- (void)printInteractionControllerDidFinishJob:(UIPrintInteractionController *)controller {
+  CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+  
+  [self.commandDelegate sendPluginResult:pluginResult
+                              callbackId:_command.callbackId];
+};
+
 
 /**
  * Retrieves an instance of shared print controller.

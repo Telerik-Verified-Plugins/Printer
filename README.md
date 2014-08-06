@@ -9,7 +9,7 @@ by Sebastián Katzer ([github.com/katzer](https://github.com/katzer))
 - **iOS** *(Print from iOS devices to AirPrint compatible printers)*<br>
 See [Drawing and Printing Guide for iOS](http://developer.apple.com/library/ios/documentation/2ddrawing/conceptual/drawingprintingios/Printing/Printing.html) for detailed informations and screenshots.
 
-- **Android** *(Print through 3rd party printing apps)*
+- **Android** *(KitKat 4.4 and up)*
 
 
 ## Installation
