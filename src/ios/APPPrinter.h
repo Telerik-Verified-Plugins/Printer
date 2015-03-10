@@ -30,6 +30,6 @@
 // Prints the content
 - (void) print:(CDVInvokedUrlCommand*)command;
 // Find out whether printing is supported on this platform
-- (void) isServiceAvailable:(CDVInvokedUrlCommand*)command;
+- (void) isAvailable:(CDVInvokedUrlCommand*)command;
 
 @end
