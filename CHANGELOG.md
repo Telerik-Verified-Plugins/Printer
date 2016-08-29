@@ -1,4 +1,17 @@
 ## ChangeLog
+#### Version 0.7.2 (03.08.2016)
+- [__change__:] Changed plugin ID to `cordova-plugin-printer`
+- [__change__:] Plugin requires Android KitKat or newer
+- [__change__:] `isAvailable` returns false if no enabled service can be found (Android)
+- [feature:] New `pick` interface to pick a printer for future usage
+- [feature:] Support for Windows10 platform (Thanks to #cristi-badila)
+- [enhancement:] `isAvailable` returns count of available services (Android)
+- [enhancement:] `print` returns bool value to indicate the result
+- [enhancement:] Added missing `duplex` support (Android)
+- [__change__:] `duplex` requires a string (`none`, `long` or `short`)
+- [enhancement:] Support for `border`, `hidePageRange`, `hideNumberOfCopies` and `hidePaperFormat` (iOS specific)
+
+
 #### Version 0.7.1 (23.04.2015)
 - [bugfix:] `isAvailable` does not block the main thread anymore.
 - [bugfix:] iPad+iOS8 incompatibility (Thanks to __zmagyar__)
