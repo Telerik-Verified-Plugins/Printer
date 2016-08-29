@@ -23,7 +23,7 @@
 #import <Cordova/CDVPlugin.h>
 
 
-@interface APPPrinter : CDVPlugin <UIWebViewDelegate>
+@interface APPPrinter : CDVPlugin <UIWebViewDelegate, UIPrintInteractionControllerDelegate>
 
 // Find out whether printing is supported on this platform
 - (void) check:(CDVInvokedUrlCommand*)command;

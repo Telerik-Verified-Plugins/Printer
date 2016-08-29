@@ -76,6 +76,7 @@
     self.settings                 = [arguments objectAtIndex:1];
 
     UIPrintInteractionController* controller = [self printController];
+    controller.delegate = self;
 
     [self adjustPrintController:controller withSettings:self.settings];
     [self loadContent:content intoPrintController:controller];
@@ -103,6 +104,21 @@
 
     [self presentPrinterPicker:rect];
 }
+
+
+#pragma mark -
+#pragma mark UIPrintInteractionControllerDelegate
+
+- (CGFloat)printInteractionController:(UIPrintInteractionController *)printInteractionController cutLengthForPaper:(UIPrintPaper *)paper
+{
+  NSNumber *cutLength = [self.settings objectForKey:@"cutLength"];
+  if (cutLength == nil) {
+    return 0.0;
+  } else {
+    return cutLength.floatValue;
+  }
+}
+
 
 #pragma mark -
 #pragma mark UIWebViewDelegate
